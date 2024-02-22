@@ -1,6 +1,7 @@
 # store a benchmark jsons
 
 from pathlib import Path
+import json
 import argparse
 
 
@@ -20,7 +21,7 @@ def main(out_file):
     })
 
     with open(out_file, "w+") as f:
-        json.dump(dicts, outfile, sort_keys=True, indent=4)
+        json.dump(dicts, f, sort_keys=True, indent=4)
 
 
 if __name__ == "__main__":
@@ -33,6 +34,7 @@ if __name__ == "__main__":
           "--output-file",
           type=str,
           default=None,
+          required=True,
           help="Path to a file where the output json is stored")
 
     args = parser.parse_args()

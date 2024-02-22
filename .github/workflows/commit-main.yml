@@ -1,0 +1,24 @@
+name: GHA bench test
+on:
+  push:
+    branches:
+      - master
+
+        python3 src/py_bench.py -o ./output.txt
+jobs:
+  benchmark:
+    name: benchmark 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run benchmark
+        run: python3 src/py_bench.py -o output.txt
+      # Run `github-action-benchmark` action
+      - name: Store benchmark result
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          # What benchmark tool the output.txt came from
+          tool: 'N/A'
+          # Where the output from the benchmark tool is stored
+          output-file-path: output.txt
+          gh-pages-branch: "gh-pages"
