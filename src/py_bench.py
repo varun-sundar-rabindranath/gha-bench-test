@@ -3,6 +3,7 @@
 from pathlib import Path
 import json
 import argparse
+import random
 
 
 def main(out_file):
@@ -11,11 +12,11 @@ def main(out_file):
     dicts.append({
         "name": "My Custom Smaller Is Better Benchmark - Dummy 1",
         "unit": "Percent",
-        "value": 50})
+        "value": f"{random.randint(10, 100)}"})
     dicts.append({
         "name": "My Custom Smaller Is Better Benchmark - Dummy 2",
         "unit": "Megabytes",
-        "value": 100,
+        "value": f"{random.randint(10, 100)}",
         "range": "3",
         "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
     })
