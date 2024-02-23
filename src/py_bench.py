@@ -6,6 +6,7 @@ import argparse
 import random
 
 
+
 def main(out_file):
 
     dicts = []
