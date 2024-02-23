@@ -2,7 +2,7 @@ name: GHA bench test
 on:
   push:
     branches:
-      - master
+      - main 
 jobs:
   benchmark:
     name: benchmark 
