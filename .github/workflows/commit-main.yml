@@ -19,4 +19,5 @@ jobs:
           tool: 'customBiggerIsBetter'
           # Where the output from the benchmark tool is stored
           output-file-path: output.txt
+          auto-push: true
           gh-pages-branch: "gh-pages"
