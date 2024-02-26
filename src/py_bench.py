@@ -21,6 +21,11 @@ def main(out_file):
         "range": "3",
         "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
     })
+    dicts.append({
+        "name": "My Custom Smaller Is Better Benchmark - Dummy 3",
+        "unit": "Time(ms)",
+        "value": f"{random.randint(10, 100)}"
+    })
 
     with open(out_file, "w+") as f:
         json.dump(dicts, f, sort_keys=True, indent=4)
