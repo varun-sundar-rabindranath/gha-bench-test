@@ -24,7 +24,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: false
           comment-always: true
-          auto_push: true
+          auto-push: true
           gh-pages-branch: "gh-pages"
 
       - name: Store benchmark result pybench2
@@ -36,5 +36,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: false
           comment-always: true
-          auto_push: true
+          auto-push: true
           gh-pages-branch: "gh-pages"
