@@ -7,6 +7,11 @@ jobs:
   benchmark:
     name: benchmark 
     runs-on: ubuntu-latest
+    permissions:
+      # deployments permission to deploy GitHub pages website
+      deployments: write
+      # contents permission to update benchmark contents in gh-pages branch
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Run benchmark
@@ -14,11 +19,6 @@ jobs:
       # Run `github-action-benchmark` action
       - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
-        permissions:
-          # deployments permission to deploy GitHub pages website
-          deployments: write
-          # contents permission to update benchmark contents in gh-pages branch
-          contents: write
         with:
           # What benchmark tool the output.txt came from
           tool: 'customBiggerIsBetter'
