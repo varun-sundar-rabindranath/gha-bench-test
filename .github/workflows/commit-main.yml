@@ -8,24 +8,33 @@ jobs:
     name: benchmark 
     runs-on: ubuntu-latest
     permissions:
-    #  # deployments permission to deploy GitHub pages website
-    #  deployments: write
-    #  # contents permission to update benchmark contents in gh-pages branch
       contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Run benchmark
-        run: python3 src/py_bench.py -o output.txt
-      - name: Store benchmark result
+        run: |
+          python3 src/py_bench.py -o output_py_bench.txt
+          python3 src/py_bench2.py -o output_py_bench2.txt
+      - name: Store benchmark result pybench1
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          # What benchmark tool the output.txt came from
           tool: 'customBiggerIsBetter'
           # Where the output from the benchmark tool is stored
-          output-file-path: output.txt
+          output-file-path: output_py_bench.txt
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: false
           comment-always: true
-          #gh-pages-branch: "gh-pages"
-      - name: Push bm result
-        run: git push 'https://varun-sundar-rabindranath:${{ secrets.GITHUB_TOKEN }}@github.com/varun-sundar-rabindranath/gha-bench-test.git' gh-pages:gh-pages
+          auto_push: true
+          gh-pages-branch: "gh-pages"
+
+      - name: Store benchmark result pybench2
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          tool: 'customBiggerIsBetter'
+          # Where the output from the benchmark tool is stored
+          output-file-path: output_py_bench2.txt
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: false
+          comment-always: true
+          auto_push: true
+          gh-pages-branch: "gh-pages"
