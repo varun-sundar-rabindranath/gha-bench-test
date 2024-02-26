@@ -25,6 +25,7 @@ jobs:
           output-file-path: output.txt
           #github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: false
+          comment-always: true
           #gh-pages-branch: "gh-pages"
       - name: Push bm result
         run: git push 'https://varun-sundar-rabindranath:${{ secrets.GITHUB_TOKEN }}@github.com/varun-sundar-rabindranath/gha-bench-test.git' gh-pages:gh-pages
