@@ -7,11 +7,11 @@ jobs:
   benchmark:
     name: benchmark 
     runs-on: ubuntu-latest
-    permissions:
-      # deployments permission to deploy GitHub pages website
-      deployments: write
-      # contents permission to update benchmark contents in gh-pages branch
-      contents: write
+    #permissions:
+    #  # deployments permission to deploy GitHub pages website
+    #  deployments: write
+    #  # contents permission to update benchmark contents in gh-pages branch
+    #  contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Run benchmark
