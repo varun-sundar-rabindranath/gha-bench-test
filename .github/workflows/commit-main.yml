@@ -7,19 +7,15 @@ jobs:
   benchmark:
     name: benchmark 
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run benchmark
-        run: python3 src/py_bench.py -o output.txt
-  gh-pages:
-    name: gh-pages-upload 
-    runs-on: ubuntu-latest
     permissions:
       # deployments permission to deploy GitHub pages website
       deployments: write
       # contents permission to update benchmark contents in gh-pages branch
       contents: write
     steps:
+      - uses: actions/checkout@v4
+      - name: Run benchmark
+        run: python3 src/py_bench.py -o output.txt
       - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
         with:
