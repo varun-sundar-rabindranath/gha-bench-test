@@ -3,11 +3,6 @@ on:
   push:
     branches:
       - main 
-permissions:
-  # deployments permission to deploy GitHub pages website
-  deployments: write
-  # contents permission to update benchmark contents in gh-pages branch
-  contents: write
 jobs:
   benchmark:
     name: benchmark 
@@ -18,6 +13,11 @@ jobs:
         run: python3 src/py_bench.py -o output.txt
       # Run `github-action-benchmark` action
       - name: Store benchmark result
+        permissions:
+          # deployments permission to deploy GitHub pages website
+          deployments: write
+          # contents permission to update benchmark contents in gh-pages branch
+          contents: write
         uses: benchmark-action/github-action-benchmark@v1
         with:
           # What benchmark tool the output.txt came from
