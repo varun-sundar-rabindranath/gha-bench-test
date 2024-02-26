@@ -23,6 +23,8 @@ jobs:
           tool: 'customBiggerIsBetter'
           # Where the output from the benchmark tool is stored
           output-file-path: output.txt
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          auto-push: true
-          gh-pages-branch: "gh-pages"
+          #github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: false
+          #gh-pages-branch: "gh-pages"
+      - name: Push bm result
+        run: git push 'https://varun-sundar-rabindranath:${{ secrets.GITHUB_TOKEN }}@github.com/varun-sundar-rabindranath/gha-bench-test.git' gh-pages:gh-pages
