@@ -10,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run py_bench
-        uses: '.github/workflows/benchmark.yml'
+        uses: ./.github/workflows/benchmark.yml
         with:
           benchmark_script: 'src/py_bench.py'
       - name: Run py_bench2
-        uses: '.github/workflows/benchmark.yml'
+        uses: ./.github/workflows/benchmark.yml
         with:
           benchmark_script: 'src/py_bench2.py'
