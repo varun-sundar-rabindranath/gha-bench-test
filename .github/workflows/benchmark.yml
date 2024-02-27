@@ -15,7 +15,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
       - name: Run benchmark
         run: python3 ${{ inputs.benchmark_script }} -o output_py_bench.txt
       - name: Store benchmark result pybench
