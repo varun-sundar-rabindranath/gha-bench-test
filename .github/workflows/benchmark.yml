@@ -1,0 +1,31 @@
+name: benchmark
+on:
+  # makes workflow reusable
+  workflow_call:
+    inputs:
+      benchmark_script:
+        description: "path to the benchmark script"
+        type: string
+        required: true
+
+jobs:
+  benchmark:
+    name: benchmark 
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run benchmark
+        run: python3 ${{ inputs.benchmark_script }} -o output_py_bench.txt
+      - name: Store benchmark result pybench
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          tool: 'customBiggerIsBetter'
+          # Where the output from the benchmark tool is stored
+          output-file-path: output_py_bench.txt
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-always: true
+          auto-push: true
+          gh-pages-branch: "gh-pages"
+
