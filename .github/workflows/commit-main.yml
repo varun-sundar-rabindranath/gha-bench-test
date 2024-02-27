@@ -12,5 +12,5 @@ jobs:
         py_bench_scripts: ['src/py_bench.py', 'src/py_bench2.py']
     uses: ./.github/workflows/benchmark.yml
     with:
-      benchmark_script: 'src/py_bench.py'
+      benchmark_script: ${{ matrix.py_bench_scripts }}
 
