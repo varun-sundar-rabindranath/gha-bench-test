@@ -27,6 +27,7 @@ jobs:
           output-file-path: output_py_bench.txt
           github-token: ${{ secrets.GITHUB_TOKEN }}
           comment-always: true
+          comment-on-alert: true
           auto-push: true
           gh-pages-branch: "gh-pages"
 
