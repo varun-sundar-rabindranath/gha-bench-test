@@ -31,6 +31,6 @@ jobs:
           comment-on-alert: true
           fail-on-alert: true
           auto-push: true
-          alert-threshold: 10
+          alert-threshold: "10%"
           gh-pages-branch: "gh-pages"
 
