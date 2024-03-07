@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1709785791966,
+  "lastUpdate": 1709785997559,
   "repoUrl": "https://github.com/varun-sundar-rabindranath/gha-bench-test",
   "entries": {
     "Benchmark": [
@@ -589,6 +589,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "no-unit",
             "value": "87",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "committer": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "distinct": true,
+          "id": "de335041cd597433b5991d77c42c40077a033571",
+          "message": "add empty unit",
+          "timestamp": "2024-03-06T23:33:00-05:00",
+          "tree_id": "73ae9bb73c0731314dcb568c19c6f304011a7040",
+          "url": "https://github.com/varun-sundar-rabindranath/gha-bench-test/commit/de335041cd597433b5991d77c42c40077a033571"
+        },
+        "date": 1709785997255,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "pybench2 Dummy 1",
+            "value": "57",
+            "unit": "Percent"
+          },
+          {
+            "name": "pybench2 Dummy 2",
+            "value": "50",
+            "unit": "Megabytes",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          },
+          {
+            "name": "no-unit",
+            "value": "77",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          },
+          {
+            "name": "empty-unit",
+            "value": "56",
+            "unit": "",
             "range": "3",
             "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
           }
