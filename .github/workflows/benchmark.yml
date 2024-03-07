@@ -8,12 +8,13 @@ on:
         type: string
         required: true
 
+permissions:
+  contents: write
+
 jobs:
   benchmark:
     name: benchmark 
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
