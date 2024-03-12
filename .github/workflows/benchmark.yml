@@ -32,4 +32,5 @@ jobs:
     uses: ./.github/workflows/push-to-ghpages.yml
     with:
       artifact_id: ${{github.run-id}}
+      tool: "CustomBiggerIsBetter"
       file_name: output_py_bench.txt
