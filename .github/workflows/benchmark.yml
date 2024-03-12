@@ -26,7 +26,7 @@ jobs:
         id: set_artifact_name
         run: |
           ARTIFACT_NAME=`echo "${{ github.run_id}}-${{ inputs.benchmark_script }}" | tr '/' '_'`
-          echo ::set-output name=artifact_name::$ARTIFACT_NAME
+          echo "artifact_name=$ARTIFACT_NAME" >>$GITHUB_OUTPUT
 
       # upload artifact
       - name: upload artifact
@@ -42,5 +42,5 @@ jobs:
     uses: ./.github/workflows/push-to-ghpages.yml
     with:
       artifact_id: ${{ needs.benchmark.outputs.artifact_name }}
-      tool: "CustomBiggerIsBetter"
+      tool: "customBiggerIsBetter"
       file_name: output_py_bench.txt
