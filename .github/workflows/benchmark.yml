@@ -13,7 +13,7 @@ jobs:
     name: benchmark 
     runs-on: ubuntu-latest
     outputs:
-      artifact_name: ${{ steps.set_artifact_name.outputs.ARTIFACT_NAME }}
+      artifact_name: ${{ steps.set_artifact_name.outputs.artifact_name}}
 
     steps:
       - name: checkout repository
@@ -26,12 +26,13 @@ jobs:
         id: set_artifact_name
         run: |
           ARTIFACT_NAME=`echo "${{ github.run_id}}-${{ inputs.benchmark_script }}" | tr '/' '_'`
-          echo "ARTIFACT_NAME=$ARTIFACT_NAME" >> $GITHUB_ENV                                                                                                                                                
+          echo ::set-output name=artifact_name::$ARTIFACT_NAME
+
       # upload artifact
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: $ARTIFACT_NAME
+          name: ${{ steps.set_artifact_name.outputs.artifact_name}} 
           path: output_py_bench.txt
           retention-days: 1
 
