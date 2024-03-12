@@ -31,7 +31,7 @@ jobs:
           auto-push: false
           comment-always: true
           auto-push: true
-          gh-pages-branch: "gh-pages"
+          gh-pages-branch: "benchmark-gh-pages-testing"
 
       - name: Store benchmark result pybench2
         uses: benchmark-action/github-action-benchmark@v1
@@ -43,4 +43,4 @@ jobs:
           auto-push: false
           comment-always: true
           auto-push: true
-          gh-pages-branch: "gh-pages"
+          gh-pages-branch: "benchmark-gh-pages-testing"
