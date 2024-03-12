@@ -26,7 +26,7 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.ARTIFACT_NAME}}
+          name: $ARTIFACT_NAME
           path: output_py_bench.txt
           retention-days: 1
 
@@ -35,6 +35,6 @@ jobs:
     needs: benchmark 
     uses: ./.github/workflows/push-to-ghpages.yml
     with:
-      artifact_id: ${{ env.ARTIFACT_NAME }}
+      artifact_id: $ARTIFACT_NAME
       tool: "CustomBiggerIsBetter"
       file_name: output_py_bench.txt
