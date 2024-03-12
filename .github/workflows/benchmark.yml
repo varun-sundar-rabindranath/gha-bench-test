@@ -23,7 +23,7 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{github.run-id}}
+          name: ${{github.run-id}}-${{inputs.benchmark_script}}
           path: output_py_bench.txt
           retention-days: 1
 
@@ -32,6 +32,6 @@ jobs:
     needs: benchmark 
     uses: ./.github/workflows/push-to-ghpages.yml
     with:
-      artifact_id: ${{github.run-id}}
+      artifact_id: ${{github.run-id}}-${{inputs.benchmark_script}}
       tool: "CustomBiggerIsBetter"
       file_name: output_py_bench.txt
