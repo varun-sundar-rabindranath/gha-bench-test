@@ -29,8 +29,7 @@ jobs:
 
   # call the benchmark action store workflow
   push_to_gh_pages:
-      - name: push_to_gh_pages
-        uses: ./.github/workflows/push-to-ghpages.yml
-        with:
-          artifact_id: ${{github.run-id}}
-          file_name: output_py_bench.txt
+    uses: ./.github/workflows/push-to-ghpages.yml
+    with:
+      artifact_id: ${{github.run-id}}
+      file_name: output_py_bench.txt
