@@ -3,11 +3,18 @@ on:
   # makes workflow reusable
   workflow_call:
     inputs:
-      out_file:
-        description: "path to the output file"
+      artifact_id:
+        description: "id of the benchmark results artifact"
         type: string
         required: true
-
+      tool:
+        description: "gh benchmark tool name"
+        type: string
+        required: true
+      file_name:
+        description: "file to upload"
+        type: string
+        required: true
 
 jobs:
   push-to-ghpages:
@@ -16,29 +23,18 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - name: Run benchmark
-        run: |
-          python3 src/py_bench.py -o output_py_bench.txt
-          python3 src/py_bench2.py -o output_py_bench2.txt
-      - name: Store benchmark result pybench1
-        uses: benchmark-action/github-action-benchmark@v1
+      - name: download benchmark results artifact
+        uses: actions/download-artifact@v4
         with:
-          tool: 'customBiggerIsBetter'
-          # Where the output from the benchmark tool is stored
-          output-file-path: output_py_bench.txt
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          auto-push: false
-          comment-always: true
-          auto-push: true
-          gh-pages-branch: "benchmark-gh-pages-testing"
+          name: ${{ inputs.benchmark_results_artifact_id }}
+          path: .
 
-      - name: Store benchmark result pybench2
+      - name: push to gh pages 
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          tool: 'customBiggerIsBetter'
+          tool: ${{ inputs.tool }} 
           # Where the output from the benchmark tool is stored
-          output-file-path: output_py_bench2.txt
+          output-file-path: "${{ inputs.benchmark_results_artifact_id }} / ${{inputs.file_name}}"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: false
           comment-always: true

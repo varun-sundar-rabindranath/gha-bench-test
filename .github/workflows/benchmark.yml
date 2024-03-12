@@ -8,9 +8,6 @@ on:
         type: string
         required: true
 
-permissions:
-  contents: write
-
 jobs:
   benchmark:
     name: benchmark 
@@ -18,19 +15,22 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
+
       - name: Run benchmark
         run: python3 ${{ inputs.benchmark_script }} -o output_py_bench.txt
-      - name: Store benchmark result pybench
-        uses: benchmark-action/github-action-benchmark@v1
-        with:
-          tool: 'customBiggerIsBetter'
-          # Where the output from the benchmark tool is stored
-          output-file-path: output_py_bench.txt
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          comment-always: true
-          comment-on-alert: true
-          fail-on-alert: true
-          auto-push: true
-          alert-threshold: "10%"
-          gh-pages-branch: "benchmark-gh-pages-testing"
 
+      # upload artifact
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{github.run-id}}
+          path: output_py_bench.txt
+          retention-days: 1
+
+  # call the benchmark action store workflow
+  push_to_gh_pages:
+      - name: push_to_gh_pages
+        uses: ./.github/workflows/push-to-ghpages.yml
+        with:
+          artifact_id: ${{github.run-id}}
+          file_name: output_py_bench.txt
