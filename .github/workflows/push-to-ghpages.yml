@@ -26,7 +26,7 @@ jobs:
       - name: download benchmark results artifact
         uses: actions/download-artifact@v4
         with:
-          name: ${{ inputs.benchmark_results_artifact_id }}
+          name: ${{ inputs.artifact_id}}
           path: downloads 
 
       - name: Display structure of downloaded files
