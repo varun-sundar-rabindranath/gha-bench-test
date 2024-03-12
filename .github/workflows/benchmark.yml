@@ -8,13 +8,13 @@ on:
         type: string
         required: true
 
-env:
-   ARTIFACT_NAME:`echo "${{ github.run_id}}-${{ inputs.benchmark_script }}" | tr '/' '_'`
-
 jobs:
   benchmark:
     name: benchmark 
     runs-on: ubuntu-latest
+    outputs:
+      artifact_name: ${{ steps.set_artifact_name.outputs.ARTIFACT_NAME }}
+
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
@@ -22,6 +22,11 @@ jobs:
       - name: Run benchmark
         run: python3 ${{ inputs.benchmark_script }} -o output_py_bench.txt
 
+      - name: set artifact name
+        id: set_artifact_name
+        run: |
+          ARTIFACT_NAME=`echo "${{ github.run_id}}-${{ inputs.benchmark_script }}" | tr '/' '_'`
+          echo "ARTIFACT_NAME=$ARTIFACT_NAME" >> $GITHUB_ENV                                                                                                                                                
       # upload artifact
       - name: upload artifact
         uses: actions/upload-artifact@v4
@@ -35,6 +40,6 @@ jobs:
     needs: benchmark 
     uses: ./.github/workflows/push-to-ghpages.yml
     with:
-      artifact_id: $ARTIFACT_NAME
+      artifact_id: ${{ needs.benchmark.outputs.artifact_name }}
       tool: "CustomBiggerIsBetter"
       file_name: output_py_bench.txt
