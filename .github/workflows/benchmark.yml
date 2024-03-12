@@ -29,6 +29,7 @@ jobs:
 
   # call the benchmark action store workflow
   push_to_gh_pages:
+    needs: benchmark 
     uses: ./.github/workflows/push-to-ghpages.yml
     with:
       artifact_id: ${{github.run-id}}
