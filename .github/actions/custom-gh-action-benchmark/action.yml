@@ -18,7 +18,6 @@ inputs:
     required: true
   save_data_file:
     description: "When set to true, pushes the benchmark results to the `nm-gh-pages` branch. Setting this to false will be useful in the usecase w    here we want to compare a PR with main"
-    type: string
     type: choice 
     options:
         - 'true'
