@@ -36,7 +36,7 @@ jobs:
         run: ls -R ./downloads
 
       - name: push to gh pages
-        uses: .github/actions/custom-gh-action-benchmark
+        uses: ./.github/actions/custom-gh-action-benchmark
         with:
           gh_action_benchmark_json_file_path:  "downloads/${{ inputs.file_name }}"
           gh_action_benchmark_tool: ${{ inputs.tool }}
