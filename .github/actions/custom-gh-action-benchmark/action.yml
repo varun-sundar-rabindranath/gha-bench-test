@@ -29,9 +29,11 @@ inputs:
   # debugging, just to be extra sure
   auto_push:
     description: "When set to true, pushes the benchmark results to the `nm-gh-pages` branch."
-    type: string
     type: choice
     options:
+        - 'true'
+        - 'false'
+    required: true
              
 runs:
   using: composite
