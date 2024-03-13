@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710302410526,
+  "lastUpdate": 1710302514939,
   "repoUrl": "https://github.com/varun-sundar-rabindranath/gha-bench-test",
   "entries": {
     "Benchmark": [
@@ -578,6 +578,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "empty-unit",
             "value": "33",
+            "unit": "",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "committer": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "distinct": true,
+          "id": "fb39b16f8cf8348269627eda897e7bcb1862a8de",
+          "message": "add alert threshold",
+          "timestamp": "2024-03-13T00:01:31-04:00",
+          "tree_id": "a4f48e46135d304fb94d23df5faa15a37d425125",
+          "url": "https://github.com/varun-sundar-rabindranath/gha-bench-test/commit/fb39b16f8cf8348269627eda897e7bcb1862a8de"
+        },
+        "date": 1710302514553,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "pybench2 Dummy 1",
+            "value": "82",
+            "unit": "Percent"
+          },
+          {
+            "name": "pybench2 Dummy 2",
+            "value": "84",
+            "unit": "Megabytes",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          },
+          {
+            "name": "no-unit",
+            "value": "80",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          },
+          {
+            "name": "empty-unit",
+            "value": "89",
             "unit": "",
             "range": "3",
             "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
