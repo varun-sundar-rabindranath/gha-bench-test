@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710296758833,
+  "lastUpdate": 1710296763737,
   "repoUrl": "https://github.com/varun-sundar-rabindranath/gha-bench-test",
   "entries": {
     "Benchmark": [
@@ -221,6 +221,55 @@ window.BENCHMARK_DATA = {
             "name": "My Custom Smaller Is Better Benchmark - Dummy 3",
             "value": "92",
             "unit": "Time(ms)"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "committer": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "distinct": true,
+          "id": "26e10dc24f0cac9e34f573ac223ad2ead51535e1",
+          "message": "bench only for py_bench.py",
+          "timestamp": "2024-03-12T22:25:15-04:00",
+          "tree_id": "a6314ac90d707f24859843688d953c321a3df6e6",
+          "url": "https://github.com/varun-sundar-rabindranath/gha-bench-test/commit/26e10dc24f0cac9e34f573ac223ad2ead51535e1"
+        },
+        "date": 1710296763214,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "pybench2 Dummy 1",
+            "value": "86",
+            "unit": "Percent"
+          },
+          {
+            "name": "pybench2 Dummy 2",
+            "value": "26",
+            "unit": "Megabytes",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          },
+          {
+            "name": "no-unit",
+            "value": "80",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          },
+          {
+            "name": "empty-unit",
+            "value": "16",
+            "unit": "",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
           }
         ]
       }
