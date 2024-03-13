@@ -52,5 +52,5 @@ runs:
         gh-pages-branch: ${{ inputs.gh_pages_branch }}
         alert-threshold: "10%"
         fail-on-alert: true
-        comment-on-fail: true
+        comment-on-alert: true
 
