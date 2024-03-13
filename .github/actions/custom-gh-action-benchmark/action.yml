@@ -33,15 +33,17 @@ inputs:
     type: choice
     options:
              
-steps:
-  - name: push to gh pages 
-    uses: benchmark-action/github-action-benchmark@v1
-    with:
-      tool: ${{ inputs.gh_action_benchmark_tool }} 
-      # Where the output from the benchmark tool is stored
-      output-file-path: ${{ inputs.gh_action_benchmark_json_file_path }}
-      github-token: ${{ secrets.GITHUB_TOKEN }}
-      comment-always: true
-      auto-push: ${{ inputs.auto_push == 'true' }}
-      gh-pages-branch: ${{ inputs.gh_pages_branch }}
-      save-data-file: ${{ inputs.save_data_file == 'true' }}
+runs:
+  using: composite
+  steps:
+    - name: push to gh pages 
+      uses: benchmark-action/github-action-benchmark@v1
+      with:
+        tool: ${{ inputs.gh_action_benchmark_tool }} 
+        # Where the output from the benchmark tool is stored
+        output-file-path: ${{ inputs.gh_action_benchmark_json_file_path }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        comment-always: true
+        auto-push: ${{ inputs.auto_push == 'true' }}
+        gh-pages-branch: ${{ inputs.gh_pages_branch }}
+        save-data-file: ${{ inputs.save_data_file == 'true' }}
