@@ -53,4 +53,5 @@ runs:
         save-data-file: ${{ inputs.save_data_file == 'true' }}
         alert-threshold: "10%"
         fail-on-alert: true
+        comment-on-fail: true
 

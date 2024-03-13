@@ -41,7 +41,7 @@ jobs:
           gh_action_benchmark_json_file_path:  "downloads/${{ inputs.file_name }}"
           gh_action_benchmark_tool: ${{ inputs.tool }}
           gh_pages_branch: "benchmark-gh-pages-testing"
-          save_data_file: "true"
+          save_data_file: "false"
           auto_push: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
