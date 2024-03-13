@@ -52,3 +52,5 @@ runs:
         gh-pages-branch: ${{ inputs.gh_pages_branch }}
         save-data-file: ${{ inputs.save_data_file == 'true' }}
         alert-threshold: "10%"
+        fail-on-alert: true
+
