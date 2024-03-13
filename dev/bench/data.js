@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710302664989,
+  "lastUpdate": 1710302757204,
   "repoUrl": "https://github.com/varun-sundar-rabindranath/gha-bench-test",
   "entries": {
     "Benchmark": [
@@ -760,6 +760,47 @@ window.BENCHMARK_DATA = {
           {
             "name": "My Custom Smaller Is Better Benchmark - Dummy 3",
             "value": "39",
+            "unit": "Time(ms)"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "committer": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "distinct": true,
+          "id": "7ce646d61b26fdf8fe1c9e510899f4a5ba2bd48f",
+          "message": "add comment on fail",
+          "timestamp": "2024-03-13T00:05:33-04:00",
+          "tree_id": "42c588f7c824fc2892c42c0283bdca165e6cf182",
+          "url": "https://github.com/varun-sundar-rabindranath/gha-bench-test/commit/7ce646d61b26fdf8fe1c9e510899f4a5ba2bd48f"
+        },
+        "date": 1710302756846,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "My Custom Smaller Is Better Benchmark - Dummy 1",
+            "value": "44",
+            "unit": "Percent"
+          },
+          {
+            "name": "My Custom Smaller Is Better Benchmark - Dummy 2",
+            "value": "62",
+            "unit": "Megabytes",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          },
+          {
+            "name": "My Custom Smaller Is Better Benchmark - Dummy 3",
+            "value": "59",
             "unit": "Time(ms)"
           }
         ]
