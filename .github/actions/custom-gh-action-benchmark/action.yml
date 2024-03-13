@@ -1,0 +1,47 @@
+name: custom gh action benchmark
+description: 'custom gh action benchmark'
+inputs: 
+  gh_action_benchmark_json_file_path:
+    description: "Path to the benchmark json file to upload (Note that this JSON should be in a `github-action-benchmark` consumable format - This     is typically the output of  neuralmagic/benchmarks/scripts/logging/gha_benchmark_logging.py)"
+    type: string
+    required: true
+  gh_action_benchmark_tool:
+    description: "A string that is input to the `tool` argument of  `github-action-benchmark`. This should be either `customBiggerIsBetter` or `cus    tomSmallerIsBetter`"
+    type: choice
+    options:
+        - 'true'
+        - 'false'
+    required: true
+  gh_pages_branch:
+    description: "Github branch where the `github-action-benchmark` creates its index.html and data.js"
+    type: string
+    required: true
+  save_data_file:
+    description: "When set to true, pushes the benchmark results to the `nm-gh-pages` branch. Setting this to false will be useful in the usecase w    here we want to compare a PR with main"
+    type: string
+    type: choice 
+    options:
+        - 'true'
+        - 'false'
+    required: true
+  # The auto-push option looks very similar to the `save_data_file` file. However,
+  # there is some nuance there that should be explored. For now, set it both to false during
+  # debugging, just to be extra sure
+  auto_push:
+    description: "When set to true, pushes the benchmark results to the `nm-gh-pages` branch."
+    type: string
+    type: choice
+    options:
+             
+steps:
+  - name: push to gh pages 
+    uses: benchmark-action/github-action-benchmark@v1
+    with:
+      tool: ${{ inputs.gh_action_benchmark_tool }} 
+      # Where the output from the benchmark tool is stored
+      output-file-path: ${{ inputs.gh_action_benchmark_json_file_path }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+      comment-always: true
+      auto-push: ${{ inputs.auto_push == 'true' }}
+      gh-pages-branch: ${{ inputs.gh_pages_branch }}
+      save-data-file: ${{ inputs.save_data_file == 'true' }}

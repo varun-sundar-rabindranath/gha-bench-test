@@ -35,13 +35,22 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R ./downloads
 
-      - name: push to gh pages 
-        uses: benchmark-action/github-action-benchmark@v1
+      - name: push to gh pages
+        uses: .github/actions/custom-gh-action-benchmark/action.yml
         with:
-          tool: ${{ inputs.tool }} 
-          # Where the output from the benchmark tool is stored
-          output-file-path: "downloads/${{inputs.file_name}}"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          comment-always: true
-          auto-push: true
-          gh-pages-branch: "benchmark-gh-pages-testing"
+          gh_action_benchmark_json_file_path:  "downloads/${{ inputs.file_name }}"
+          gh_action_benchmark_tool: ${{ inputs.tool }}
+          gh_pages_branch: "benchmark-gh-pages-testing"
+          save_data_file: "true"
+          auto_push: "true"
+
+      #- name: push to gh pages 
+      #  uses: benchmark-action/github-action-benchmark@v1
+      #  with:
+      #    tool: ${{ inputs.tool }} 
+      #    # Where the output from the benchmark tool is stored
+      #    output-file-path: "downloads/${{inputs.file_name}}"
+      #    github-token: ${{ secrets.GITHUB_TOKEN }}
+      #    comment-always: true
+      #    auto-push: true
+      #    gh-pages-branch: "benchmark-gh-pages-testing"
