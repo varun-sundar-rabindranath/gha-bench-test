@@ -43,7 +43,7 @@ jobs:
           gh_pages_branch: "benchmark-gh-pages-testing"
           save_data_file: "true"
           auto_push: "true"
-        secrets: inherit
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       #- name: push to gh pages 
       #  uses: benchmark-action/github-action-benchmark@v1

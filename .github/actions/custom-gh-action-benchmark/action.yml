@@ -33,6 +33,9 @@ inputs:
         - 'true'
         - 'false'
     required: true
+  GITHUB_TOKEN:
+    description: "Github token"
+    required: true
              
 runs:
   using: composite
@@ -43,7 +46,7 @@ runs:
         tool: ${{ inputs.gh_action_benchmark_tool }} 
         # Where the output from the benchmark tool is stored
         output-file-path: ${{ inputs.gh_action_benchmark_json_file_path }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ input.GITHUB_TOKEN }}
         comment-always: true
         auto-push: ${{ inputs.auto_push == 'true' }}
         gh-pages-branch: ${{ inputs.gh_pages_branch }}
