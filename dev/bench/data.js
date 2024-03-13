@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710302515746,
+  "lastUpdate": 1710302658287,
   "repoUrl": "https://github.com/varun-sundar-rabindranath/gha-bench-test",
   "entries": {
     "Benchmark": [
@@ -671,6 +671,55 @@ window.BENCHMARK_DATA = {
             "name": "My Custom Smaller Is Better Benchmark - Dummy 3",
             "value": "31",
             "unit": "Time(ms)"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "committer": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "distinct": true,
+          "id": "cc38d2aaa48953c088c0a6115f0c10b35afaba05",
+          "message": "save data file = false",
+          "timestamp": "2024-03-13T00:03:55-04:00",
+          "tree_id": "a701f08c9f063cd9f4cbddc835f4b3bcf89245c1",
+          "url": "https://github.com/varun-sundar-rabindranath/gha-bench-test/commit/cc38d2aaa48953c088c0a6115f0c10b35afaba05"
+        },
+        "date": 1710302657980,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "pybench2 Dummy 1",
+            "value": "50",
+            "unit": "Percent"
+          },
+          {
+            "name": "pybench2 Dummy 2",
+            "value": "92",
+            "unit": "Megabytes",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          },
+          {
+            "name": "no-unit",
+            "value": "89",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
+          },
+          {
+            "name": "empty-unit",
+            "value": "48",
+            "unit": "",
+            "range": "3",
+            "extra": "Value for Tooltip: 25\nOptional Num #2: 100\nAnything Else!"
           }
         ]
       }
