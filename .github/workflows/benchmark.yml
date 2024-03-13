@@ -38,6 +38,7 @@ jobs:
 
   # call the benchmark action store workflow
   push_to_gh_pages:
+    if: "contains( ${{ inputs.benchmark_script }}, 'pybench.py')"
     needs: benchmark 
     uses: ./.github/workflows/push-to-ghpages.yml
     with:
