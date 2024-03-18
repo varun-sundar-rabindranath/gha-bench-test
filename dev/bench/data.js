@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710789696629,
+  "lastUpdate": 1710789698086,
   "repoUrl": "https://github.com/varun-sundar-rabindranath/gha-bench-test",
   "entries": {
     "Benchmark": [
@@ -943,6 +943,37 @@ window.BENCHMARK_DATA = {
           {
             "name": "bigger_is_better",
             "value": 95,
+            "unit": "ms"
+          }
+        ]
+      }
+    ],
+    "customSmallerIsBetter": [
+      {
+        "commit": {
+          "author": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "committer": {
+            "email": "varunsundar08@gmail.com",
+            "name": "varun",
+            "username": "varun-sundar-rabindranath"
+          },
+          "distinct": true,
+          "id": "0c040bf1a0f14880c33f5874e5e0264027e144e5",
+          "message": "add a benchmark name",
+          "timestamp": "2024-03-18T15:21:06-04:00",
+          "tree_id": "474d77e5461ca7b1492eefdf23ca018f0f2593a1",
+          "url": "https://github.com/varun-sundar-rabindranath/gha-bench-test/commit/0c040bf1a0f14880c33f5874e5e0264027e144e5"
+        },
+        "date": 1710789696239,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "smaller_is_better",
+            "value": 105,
             "unit": "ms"
           }
         ]
