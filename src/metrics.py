@@ -20,7 +20,6 @@ def main(out_file, metric_type):
             "unit": "ms",
             "value": 100})
 
-
     with open(out_file, "w+") as f:
         json.dump(dicts, f, sort_keys=True, indent=4)
 
