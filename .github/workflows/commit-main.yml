@@ -9,8 +9,10 @@ jobs:
   benchmark:
     strategy:
       matrix:
-        py_bench_scripts: ['src/py_bench.py', 'src/py_bench2.py']
+        py_bench_scripts: ['src/metrics.py']
+        gh_tools: ['customBiggerIsBetter', 'customSmallerIsBetter']
     uses: ./.github/workflows/benchmark.yml
     with:
       benchmark_script: ${{ matrix.py_bench_scripts }}
+      gh_tool: ${{ matrix.gh_tools }}
 

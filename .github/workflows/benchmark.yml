@@ -7,6 +7,10 @@ on:
         description: "path to the benchmark script"
         type: string
         required: true
+      gh_tool:
+        description: "GHA tool"
+        type: string
+        required: true
 
 jobs:
   benchmark:
@@ -20,13 +24,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run benchmark
-        run: python3 ${{ inputs.benchmark_script }} -o output_py_bench.txt
+        run: python3 ${{ inputs.benchmark_script }} -t ${{inputs.gh_tool}} -o output_py_bench.txt
 
       - name: set artifact name
         id: set_artifact_name
         run: |
           ARTIFACT_NAME=`echo "${{ github.run_id}}-${{ inputs.benchmark_script }}" | tr '/' '_'`
-          echo "artifact_name=$ARTIFACT_NAME" >>$GITHUB_OUTPUT
+          echo "artifact_name=$ARTIFACT_NAME" >> $GITHUB_OUTPUT
 
       # upload artifact
       - name: upload artifact
@@ -38,10 +42,9 @@ jobs:
 
   # call the benchmark action store workflow
   push_to_gh_pages:
-    #if: ${{ inputs.benchmark_script == 'src/py_bench.py' }}
     needs: benchmark 
     uses: ./.github/workflows/push-to-ghpages.yml
     with:
       artifact_id: ${{ needs.benchmark.outputs.artifact_name }}
-      tool: "customBiggerIsBetter"
+      tool: ${{ inputs.gh_tool }}
       file_name: output_py_bench.txt
