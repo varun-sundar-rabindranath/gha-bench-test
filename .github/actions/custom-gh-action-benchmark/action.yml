@@ -44,6 +44,7 @@ runs:
     - name: push to gh pages 
       uses: benchmark-action/github-action-benchmark@v1
       with:
+        name: ${{ inputs.gh_action_benchmark_tool }}
         tool: ${{ inputs.gh_action_benchmark_tool }} 
         # Where the output from the benchmark tool is stored
         output-file-path: ${{ inputs.gh_action_benchmark_json_file_path }}
