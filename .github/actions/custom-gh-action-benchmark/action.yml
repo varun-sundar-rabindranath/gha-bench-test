@@ -37,6 +37,7 @@ inputs:
     description: "Github token"
     required: true
              
+
 runs:
   using: composite
   steps:
