@@ -42,7 +42,7 @@ jobs:
           gh_action_benchmark_tool: ${{ inputs.tool }}
           gh_pages_branch: "gh-pages"
           save_data_file: "true"
-          auto_push: "false"
+          auto_push: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       #- name: push to gh pages 
