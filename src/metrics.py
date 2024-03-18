@@ -13,12 +13,12 @@ def main(out_file, metric_type):
         dicts.append({
             "name": "bigger_is_better",
             "unit": "ms",
-            "value": 100})
+            "value": 105})
     elif metric_type == 'customSmallerIsBetter':
         dicts.append({
             "name": "smaller_is_better",
             "unit": "ms",
-            "value": 100})
+            "value": 95})
 
     with open(out_file, "w+") as f:
         json.dump(dicts, f, sort_keys=True, indent=4)
