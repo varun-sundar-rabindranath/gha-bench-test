@@ -18,6 +18,7 @@ runs:
         echo "github event name - ${{github.event_name}}"
         echo "github sha - ${COMMIT:0:7}"
         echo "github run id - ${{github.run_id}}"
+        echo "github job id - ${{github.job_id}}"
         echo "github head ref - ${{github.head_ref}}"
         echo "github ref - ${{github.ref}}"
         echo "branch - ${{github.head_ref}}-${{github.ref}}"
