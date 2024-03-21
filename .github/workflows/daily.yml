@@ -15,7 +15,7 @@ daily:
       uses: actions/checkout@v4
 
     - name: info
-      uses: .github/actions/info
+      uses: ./.github/actions/info
       with:
         debug_string: "from daily schedule"
 
