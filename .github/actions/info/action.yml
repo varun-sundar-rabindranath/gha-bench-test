@@ -13,9 +13,10 @@ runs:
       shell: bash
       if: success()
       run: |
+        COMMIT=${{ github.sha }}
         echo "github event type - ${{github.event_type}}"
         echo "github event name - ${{github.event_name}}"
-        echo "github sha - ${{github.sha:0:7}}"
+        echo "github sha - ${COMMIT:0:7}"
         echo "github run id - ${{github.run_id}}"
         echo "github head ref - ${{github.head_ref}}"
         echo "github ref - ${{github.ref}}"
