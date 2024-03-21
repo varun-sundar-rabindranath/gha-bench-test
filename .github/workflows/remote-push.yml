@@ -1,0 +1,24 @@
+name: remote push
+run-name: "this is a remote-push"
+on:
+  push:
+    branches-ignore:
+      - main
+
+concurrency:
+  group: ${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+    
+jobs:
+  remote_push:
+    name: remote push 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: info
+        uses: ./.github/actions/info
+        with:
+          debug_string: "from remote-push"
