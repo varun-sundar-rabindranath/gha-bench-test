@@ -1,0 +1,21 @@
+name: daily 
+run-name: ${{ github.actor }} triggered nightly on ${{ github.ref }}
+on:
+    schedule:
+      # * is a special character in YAML so you have to quote this string
+      - cron: '*/15 * * * *'
+
+jobs:
+daily:
+  name: scheduled daily
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: checkout repository
+      uses: actions/checkout@v4
+
+    - name: info
+      uses: .github/actions/info
+      with:
+        debug_string: "from daily schedule"
+

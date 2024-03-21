@@ -12,6 +12,17 @@ on:
         type: string
         required: true
 
+  workflow_dispatch:
+    inputs:
+      benchmark_script:
+        description: "path to the benchmark script"
+        type: string
+        required: true
+      gh_tool:
+        description: "GHA tool"
+        type: string
+        required: true
+
 jobs:
   benchmark:
     name: benchmark 
@@ -22,6 +33,11 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
+
+      - name: info
+        uses: .github/actions/info
+        with:
+          debug_string: "from benchmark yml"
 
       - name: Run benchmark
         run: python3 ${{ inputs.benchmark_script }} -t ${{inputs.gh_tool}} -o output_py_bench.txt

@@ -1,0 +1,22 @@
+name: info 
+description: 'print info'
+inputs: 
+  debug_string:
+    description: "debug string to print"
+    type: string
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: info
+      shell: bash
+      if: success()
+      run: |
+        echo "github event type - ${{github.event_type}}"
+        echo "github event name - ${{github.event_name}}"
+        echo "github sha - ${{github.sha:0:7}}"
+        echo "github run id - ${{github.run_id}}"
+        echo "github head ref - ${{github.head_ref}}"
+        echo "github ref - ${{github.ref}}"
+        echo "branch - ${{github.head_ref}}-${{github.ref}}"
