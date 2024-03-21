@@ -1,9 +1,8 @@
 name: daily 
 run-name: ${{ github.actor }} triggered nightly on ${{ github.ref }}
 on:
-    schedule:
-      # * is a special character in YAML so you have to quote this string
-      - cron: '*/15 * * * *'
+
+  workflow_dispatch:
 
 jobs:
   daily:
